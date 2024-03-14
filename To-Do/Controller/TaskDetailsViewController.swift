@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TaskDelegate: class {
+protocol TaskDelegate: AnyObject {
     func didTapSave(task : Task)
     func didTapUpdate(task : Task)
 }
@@ -115,7 +115,7 @@ class TaskDetailsViewController: UIViewController{
         let subtask = subTasksTextView.text?.trim() ?? .empty
         /// check if we are updating the task or creatiing the task
         if self.task == nil {
-            let mainController = self.delegate as! TodoViewController
+            let mainController = self.delegate as! NoteListVC
             self.task = Task(context: mainController.moc)
         }
         task?.title = title

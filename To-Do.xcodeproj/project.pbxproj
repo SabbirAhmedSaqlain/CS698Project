@@ -24,6 +24,8 @@
 		6555BCAC252C3FAC00E7DF3D /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6555BCAB252C3FAC00E7DF3D /* TaskTests.swift */; };
 		8E6209BD25291AF0004CE4B9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6209BC25291AF0004CE4B9 /* OnboardingViewController.swift */; };
 		AB95E033252712C4008C4E48 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95E032252712C4008C4E48 /* TaskCell.swift */; };
+		E227F5312BA37C0E009AFF82 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227F5302BA37C0E009AFF82 /* LoginVC.swift */; };
+		E227F5332BA38042009AFF82 /* NoteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227F5322BA38042009AFF82 /* NoteListVC.swift */; };
 		E28423BF2BA3534200583943 /* CustomUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28423BE2BA3534200583943 /* CustomUIApplication.swift */; };
 		E28423C12BA35C0600583943 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28423C02BA35C0600583943 /* DashboardViewController.swift */; };
 		E28423C32BA3637100583943 /* PinBioSetupPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28423C22BA3637100583943 /* PinBioSetupPageVC.swift */; };
@@ -67,6 +69,8 @@
 		6555BCAD252C3FAC00E7DF3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E6209BC25291AF0004CE4B9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AB95E032252712C4008C4E48 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		E227F5302BA37C0E009AFF82 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		E227F5322BA38042009AFF82 /* NoteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListVC.swift; sourceTree = "<group>"; };
 		E28423BE2BA3534200583943 /* CustomUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIApplication.swift; sourceTree = "<group>"; };
 		E28423C02BA35C0600583943 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		E28423C22BA3637100583943 /* PinBioSetupPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinBioSetupPageVC.swift; sourceTree = "<group>"; };
@@ -154,9 +158,11 @@
 				E28423C22BA3637100583943 /* PinBioSetupPageVC.swift */,
 				E28423C42BA3650200583943 /* PinsetupVC.swift */,
 				E28423C62BA367A200583943 /* SetupSuccessfulVC.swift */,
+				E227F5302BA37C0E009AFF82 /* LoginVC.swift */,
+				E227F5322BA38042009AFF82 /* NoteListVC.swift */,
+				5BBE55C825245DBF00090F87 /* TaskDetailsViewController.swift */,
 				5BBE55B62523A90A00090F87 /* TodoViewController.swift */,
 				E28423BE2BA3534200583943 /* CustomUIApplication.swift */,
-				5BBE55C825245DBF00090F87 /* TaskDetailsViewController.swift */,
 				603B4C65252647BD00579EC6 /* ResultsTableController.swift */,
 				8E6209BC25291AF0004CE4B9 /* OnboardingViewController.swift */,
 				FFA668392530E07F004E1DE3 /* TaskHistoryViewController.swift */,
@@ -312,6 +318,7 @@
 				5BBE55CB2524623900090F87 /* TextviewBorder.swift in Sources */,
 				E28423BF2BA3534200583943 /* CustomUIApplication.swift in Sources */,
 				E924B487252D63FE004FD116 /* ImageAttachmentCell.swift in Sources */,
+				E227F5332BA38042009AFF82 /* NoteListVC.swift in Sources */,
 				E28423C52BA3650200583943 /* PinsetupVC.swift in Sources */,
 				603B4C66252647BD00579EC6 /* ResultsTableController.swift in Sources */,
 				8E6209BD25291AF0004CE4B9 /* OnboardingViewController.swift in Sources */,
@@ -320,6 +327,7 @@
 				3307EC692537AFB100963CC4 /* Extensions.swift in Sources */,
 				FFA6683A2530E07F004E1DE3 /* TaskHistoryViewController.swift in Sources */,
 				AB95E033252712C4008C4E48 /* TaskCell.swift in Sources */,
+				E227F5312BA37C0E009AFF82 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,6 +23,8 @@ class Constants {
     
     struct Segue{
         static let taskToTaskDetail = "gototask"
+        static let createNewNotes = "createNewNotes"
+        
     }
     
     struct Key{

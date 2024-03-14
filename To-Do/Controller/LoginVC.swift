@@ -1,23 +1,21 @@
 //
-//  PinsetupVC.swift
+//  LoginVC.swift
 //  To-Do
 //
 //  Created by Sabbir Ahmed on 14/3/24.
 //  Copyright © 2024 Aaryan Kothari. All rights reserved.
 //
-
-
+ 
 
 import UIKit
  
-class PinsetupVC: UIViewController,UITextFieldDelegate {
+class LoginVC: UIViewController,UITextFieldDelegate {
  
   
     @IBOutlet weak var enterPin: UITextField!
-    @IBOutlet weak var reenterPin: UITextField!
     @IBOutlet weak var pinButton: UIButton!
- 
-  
+    @IBOutlet weak var bioLogin: UIButton!
+    
 
     // MARK: - View Lifecycle
     
@@ -35,31 +33,32 @@ class PinsetupVC: UIViewController,UITextFieldDelegate {
     @IBAction func pinButtonAction(_ sender: Any) {
         
         enterPin.resignFirstResponder()
-        reenterPin.resignFirstResponder()
+ 
+        let inputPin = enterPin.text ?? ""
+        let pin = UserDefaults.standard.string(forKey: Constants.Key.pin) ?? ""
         
-        let Pin = enterPin.text ?? ""
-        let rePin = reenterPin.text ?? ""
         
-        print(Pin)
-        print(rePin)
         
-        if Pin != rePin  {
-            showAlert(msg: "Pin Number number must be same")
-        }else if Pin.count < 3{
-            showAlert(msg: "Pin Number number must be greater than 3 digit")
-        }
-        else{
-            UserDefaults.standard.set(Pin, forKey: Constants.Key.pin)
-            
-            if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SetupSuccessfulVC") as? SetupSuccessfulVC {
+        if pin == inputPin  {
+            ////Successful login
+            ///
+            if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "NoteListVC") as? NoteListVC {
                 navigationController?.pushViewController(destinationVC, animated: true)
-                
-                
             }
+            
+        }else {
+            showAlert(msg: "Wrong Pin Number!!!")
         }
         
+    }
     
+    
+    @IBAction func bioButtonAction(_ sender: Any) {
+        print("Biometric setup")
         
+        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "NoteListVC") as? NoteListVC {
+            navigationController?.pushViewController(destinationVC, animated: true)
+        }
     }
     
     func showAlert(msg: String) {
@@ -80,6 +79,7 @@ class PinsetupVC: UIViewController,UITextFieldDelegate {
 }
 
  
+
 
 
 
