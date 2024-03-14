@@ -27,6 +27,7 @@ class Constants {
     
     struct Key{
         static let onboarding = "already_shown_onboarding"
+        static let pin = "pinnumber"
     }
     
     struct Action{

@@ -364,8 +364,13 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Save"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="loginButtonTapped:" destination="aAR-px-eMU" eventType="touchUpInside" id="ZbV-ZP-PKI"/>
+                                            <action selector="pinButtonAction:" destination="aAR-px-eMU" eventType="touchUpInside" id="L6y-Jy-x4u"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -403,12 +408,13 @@
                     <connections>
                         <outlet property="enterPin" destination="58c-8o-7Z7" id="XK5-vV-1rq"/>
                         <outlet property="pinButton" destination="n5o-a9-6Fz" id="AW8-gp-9Eo"/>
-                        <outlet property="reenterPin" destination="sjy-Gs-f2v" id="wL8-IP-HZo"/>
+                        <outlet property="reenterPin" destination="bpZ-ga-bY1" id="pnj-Hb-Wto"/>
+                        <segue destination="dtN-Ba-ahv" kind="show" id="PMP-Fi-TG5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEB-2O-Cpl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2474" y="-1598"/>
+            <point key="canvasLocation" x="1000" y="-1598"/>
         </scene>
         <!--Tasks-->
         <scene sceneID="hj3-ly-iqY">
@@ -821,6 +827,7 @@
                     <connections>
                         <outlet property="bioButton" destination="n0Z-O8-RQZ" id="bj8-GS-USO"/>
                         <outlet property="pinButton" destination="W2m-yN-vAS" id="5Np-WV-4J6"/>
+                        <segue destination="aAR-px-eMU" kind="show" id="82l-wy-l3M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osb-t0-SIE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -862,24 +869,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jku-IQ-uxV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-830" y="-1598"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="i7d-cf-8Ab">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xSd-26-esE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qOH-cv-Sb1">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aAR-px-eMU" kind="relationship" relationship="rootViewController" id="25L-VU-VjP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pi2-Vh-q57" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1514" y="-1598"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="NrM-gW-BiC">
@@ -942,6 +931,11 @@
                                             <constraint firstItem="Xr6-mR-hJP" firstAttribute="centerY" secondItem="CTQ-vU-XAc" secondAttribute="centerY" id="P4L-Xt-w1l"/>
                                             <constraint firstItem="Xr6-mR-hJP" firstAttribute="height" secondItem="CTQ-vU-XAc" secondAttribute="height" multiplier="0.5" id="crF-QR-EXm"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zc9-eQ-gBa">
                                         <rect key="frame" x="101" y="682" width="212" height="48"/>
@@ -949,6 +943,11 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Login"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="loginButtonTapped:" destination="hKI-O1-tqp" eventType="touchUpInside" id="Eb4-nM-f8d"/>
                                         </connections>
@@ -995,16 +994,16 @@
             </objects>
             <point key="canvasLocation" x="490" y="-812"/>
         </scene>
-        <!--PinsetupVC-->
+        <!--Setup SuccessfulVC-->
         <scene sceneID="0Om-Nb-ach">
             <objects>
-                <viewController storyboardIdentifier="PinsetupVC" id="dtN-Ba-ahv" customClass="PinsetupVC" customModule="To_Do" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetupSuccessfulVC" id="dtN-Ba-ahv" customClass="SetupSuccessfulVC" customModule="To_Do" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2df-yV-p88">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ou6-SZ-y0A">
-                                <rect key="frame" x="0.0" y="7" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="29" width="414" height="896"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup Successful" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lhw-Vg-ZLr">
                                         <rect key="frame" x="48.5" y="92" width="317" height="43"/>
@@ -1012,30 +1011,39 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYz-KL-Plu">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="U19-79-5aH">
+                                        <rect key="frame" x="83.5" y="376.5" width="247" height="143"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYz-KL-Plu" userLabel="back">
                                         <rect key="frame" x="101" y="682" width="212" height="48"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Save"/>
+                                        <state key="normal" title="Back"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="loginButtonTapped:" destination="dtN-Ba-ahv" eventType="touchUpInside" id="oGp-Fk-MZD"/>
+                                            <action selector="pinButtonAction:" destination="dtN-Ba-ahv" eventType="touchUpInside" id="WhA-FC-IKx"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="U19-79-5aH">
-                                        <rect key="frame" x="87" y="287" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="bYz-KL-Plu" firstAttribute="centerX" secondItem="Ou6-SZ-y0A" secondAttribute="centerX" id="89M-ww-ixk"/>
+                                    <constraint firstItem="U19-79-5aH" firstAttribute="centerY" secondItem="Ou6-SZ-y0A" secondAttribute="centerY" id="8Ce-i7-mkQ"/>
+                                    <constraint firstItem="U19-79-5aH" firstAttribute="width" secondItem="Ou6-SZ-y0A" secondAttribute="width" multiplier="0.596618" id="BWU-ls-rIJ"/>
                                     <constraint firstItem="Lhw-Vg-ZLr" firstAttribute="height" secondItem="Ou6-SZ-y0A" secondAttribute="height" multiplier="0.0479911" id="Fsu-hz-1k8"/>
-                                    <constraint firstItem="bYz-KL-Plu" firstAttribute="height" secondItem="Ou6-SZ-y0A" secondAttribute="height" multiplier="0.0535714" id="OPC-Ax-HL8"/>
-                                    <constraint firstItem="bYz-KL-Plu" firstAttribute="centerX" secondItem="Ou6-SZ-y0A" secondAttribute="centerX" id="Zwz-ok-U1G"/>
+                                    <constraint firstItem="U19-79-5aH" firstAttribute="centerX" secondItem="Ou6-SZ-y0A" secondAttribute="centerX" id="Nbq-lw-5JR"/>
+                                    <constraint firstItem="bYz-KL-Plu" firstAttribute="top" secondItem="U19-79-5aH" secondAttribute="bottom" constant="162.5" id="ZA6-pE-U1i"/>
                                     <constraint firstItem="Lhw-Vg-ZLr" firstAttribute="top" secondItem="Ou6-SZ-y0A" secondAttribute="top" constant="92" id="aY7-Ug-xWh"/>
+                                    <constraint firstItem="bYz-KL-Plu" firstAttribute="width" secondItem="Ou6-SZ-y0A" secondAttribute="width" multiplier="0.512077" id="dTs-jy-UQq"/>
                                     <constraint firstItem="Lhw-Vg-ZLr" firstAttribute="width" relation="greaterThanOrEqual" secondItem="Ou6-SZ-y0A" secondAttribute="width" multiplier="0.258454" id="gFb-1q-5kW"/>
+                                    <constraint firstItem="U19-79-5aH" firstAttribute="height" secondItem="Ou6-SZ-y0A" secondAttribute="height" multiplier="0.159598" id="hrQ-Bx-iZp"/>
                                     <constraint firstItem="Lhw-Vg-ZLr" firstAttribute="centerX" secondItem="Ou6-SZ-y0A" secondAttribute="centerX" id="iC7-da-TCO"/>
-                                    <constraint firstItem="bYz-KL-Plu" firstAttribute="width" secondItem="Ou6-SZ-y0A" secondAttribute="width" multiplier="0.512077" id="ste-K6-xsk"/>
+                                    <constraint firstItem="bYz-KL-Plu" firstAttribute="height" secondItem="Ou6-SZ-y0A" secondAttribute="height" multiplier="0.0535714" id="iaI-ph-9gS"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1050,12 +1058,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="7kv-JC-znv"/>
                     <connections>
-                        <outlet property="pinButton" destination="bYz-KL-Plu" id="0os-yY-1TD"/>
+                        <outlet property="backButton" destination="bYz-KL-Plu" id="Yc7-98-rXS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KkT-ze-ivq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3688" y="-1615"/>
+            <point key="canvasLocation" x="1828.985507246377" y="-1598.4375"/>
         </scene>
     </scenes>
     <resources>

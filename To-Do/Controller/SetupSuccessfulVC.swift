@@ -20,10 +20,8 @@ import UIKit
  
 class SetupSuccessfulVC: UIViewController {
  
-  
-    @IBOutlet weak var reenterPin: UILabel!
-    @IBOutlet weak var enterPin: UITextField!
-    @IBOutlet weak var pinButton: UIButton!
+
+    @IBOutlet weak var backButton: UIButton!
  
   
 
@@ -32,25 +30,26 @@ class SetupSuccessfulVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
- 
-        UserDefaults.standard.set(false, forKey: Constants.Key.onboarding)
+        super.viewWillAppear(animated)
+        
+        // Hide the navigation bar
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
  
+ 
 
     @IBAction func pinButtonAction(_ sender: Any) {
-        
-        print("Button")
-        
-        
-        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "PinBioSetupPageVC") as? PinBioSetupPageVC {
-            //destinationVC.data = "Data you want to pass"
-            navigationController?.pushViewController(destinationVC, animated: true)
-            
-            
-        }
+        navigationController?.popToRootViewController(animated: true)
     }
  
  
