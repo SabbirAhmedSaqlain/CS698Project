@@ -261,7 +261,15 @@ class NoteListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         lastIndexTapped = indexPath.row
         let task = userdata[indexPath.row]
-        performSegue(withIdentifier: Constants.Segue.taskToTaskDetail, sender: task)
+        
+         if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "TaskDetailsViewController") as? TaskDetailsViewController {
+             destinationVC.userdata = task
+             destinationVC.update = true
+             navigationController?.pushViewController(destinationVC, animated: true)
+         }
+         
+         
+       // performSegue(withIdentifier: Constants.Segue.taskToTaskDetail, sender: task)
     }
     
     

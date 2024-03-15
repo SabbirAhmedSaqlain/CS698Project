@@ -24,7 +24,7 @@ class CoreDataLogic {
     
     
     
-    static func createData(ID: String, noteTitle: String , noteDetails: String){
+    static func createData(id: String, noteTitle: String , noteDetails: String){
         
         //As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -37,7 +37,7 @@ class CoreDataLogic {
         
         
         let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
-        user.setValue(ID, forKeyPath: "id")
+        user.setValue(id, forKeyPath: "id")
         user.setValue(noteTitle, forKey: "title")
         user.setValue(noteDetails, forKey: "details")
         
@@ -91,8 +91,7 @@ class CoreDataLogic {
         
     }
     
-    static func updateData(){
-        
+    static func updateData(id: String, noteTitle: String , noteDetails: String){
         
         //As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -100,42 +99,101 @@ class CoreDataLogic {
         //We need to create a context from this container
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "User")
-        //fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur1")
-        do
-        {
-            let test = try managedContext.fetch(fetchRequest)
-            
-            for data in test as! [NSManagedObject] {
-                
-                if let item1 = data.value(forKey: "username") {
-                    data.setValue("Ahmed", forKeyPath: "username")
-                    
-                }
-                if let item2 = data.value(forKey: "email") {
-                    data.setValue("abc@gmail.com", forKey: "email")
-                }
-                if let item3 = data.value(forKey: "password") {
-                    data.setValue("654321", forKey: "password")
-                }
-            }
-            
-            do{
-                try managedContext.save()
-                print("Updated")
-                
-            }
-            catch
-            {
-                print(error)
-            }
-        }
-        catch
-        {
-            print(error)
+        //Now let’s create an entity and new user records.
+        let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
+        
+        
+        let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
+        user.setValue(id, forKeyPath: "id")
+        user.setValue(noteTitle, forKey: "title")
+        user.setValue(noteDetails, forKey: "details")
+        
+        
+        //Now we have set all the values. The next step is to save them inside the Core Data
+        do {
+            try managedContext.save()
+            print("Data Saved")
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
         
     }
+    
+//    static func updateData(id: String, noteTitle: String , noteDetails: String){
+//        
+//        
+//        //As we know that container is set up in the AppDelegates so we need to refer that container.
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        
+//        //We need to create a context from this container
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        
+//        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "User")
+//        //fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur1")
+////        do
+////        {
+////            let test = try managedContext.fetch(fetchRequest)
+////            
+////            for data in test as! [NSManagedObject] {
+////                
+////                if let item1 = data.value(forKey: "username") {
+////                    data.setValue("Ahmed", forKeyPath: "username")
+////                    
+////                }
+////                if let item2 = data.value(forKey: "email") {
+////                    data.setValue("abc@gmail.com", forKey: "email")
+////                }
+////                if let item3 = data.value(forKey: "password") {
+////                    data.setValue("654321", forKey: "password")
+////                }
+////            }
+////            
+////            do{
+////                try managedContext.save()
+////                print("Updated")
+////                
+////            }
+////            catch
+////            {
+////                print(error)
+////            }
+////        }
+////        catch
+////        {
+////            print(error)
+////        }
+//        
+//        let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
+//        user.setValue(ID, forKeyPath: "id")
+//        user.setValue(noteTitle, forKey: "title")
+//        user.setValue(noteDetails, forKey: "details")
+//        
+//        
+//        //Now we have set all the values. The next step is to save them inside the Core Data
+//        do {
+//            try managedContext.save()
+//            print("Data Saved")
+//        } catch let error as NSError {
+//            print("Could not save. \(error), \(error.userInfo)")
+//        }
+//        
+//        
+//        
+////        do {
+////            // Fetch the object with the given ID
+////            let object = try managedContext.existingObject(with: id)
+////            
+////            // Update the attribute with the new value
+////            object.setValue(newValue, forKey: attributeName)
+////            
+////            // Save the changes
+////            try context.save()
+////        } catch {
+////            // Handle the error
+////            print("Failed to update attribute: \(error)")
+////        }
+//        
+//    }
     
     static func deleteAllData(){
         

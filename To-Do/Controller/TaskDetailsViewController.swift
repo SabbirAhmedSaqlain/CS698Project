@@ -23,6 +23,9 @@ class TaskDetailsViewController: UIViewController{
     @IBOutlet private weak var attachmentCollection: UICollectionView!
     
     
+    var userdata = coreData()
+    var update = false
+    
     // VARIABLES
     var task : Task? = nil
     var endDate : String = .empty
@@ -40,6 +43,14 @@ class TaskDetailsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if update {
+            saveButton.title = "Update"
+            taskTitleTextField.text = userdata.title
+            subTasksTextView.text = userdata.details
+        }
+        
+        
         isUpdate = (task != nil)
         endDatePicker = UIDatePicker()
         endDatePicker.addTarget(self, action: #selector(didPickDate(_:)), for: .valueChanged)
@@ -75,11 +86,17 @@ class TaskDetailsViewController: UIViewController{
         }else if noteDetails.count == 0 {
             showAlert(msg: "Please enter note details")
         }
+        else if  update {
+            CoreDataLogic.updateData(id: userdata.id ?? "", noteTitle: userdata.title ?? "", noteDetails: userdata.details ?? "")
+        }
+        
         else{
             var noteCounter = UserDefaults.standard.integer(forKey: Constants.Key.noteCounter)
             noteCounter += 1
             UserDefaults.standard.set(noteCounter, forKey: Constants.Key.noteCounter)
-            CoreDataLogic.createData(ID: String(noteCounter), noteTitle: noteTitle, noteDetails: noteDetails)
+            CoreDataLogic.createData(id: String(noteCounter), noteTitle: noteTitle, noteDetails: noteDetails)
+            
+            navigationController?.popViewController(animated: true)
         }
     }
     

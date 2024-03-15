@@ -168,12 +168,12 @@
 				E227F5772BA3E9E0009AFF82 /* PinBioSetupPageVC.swift */,
 				E2FA87CD2BA3F10800F34A47 /* PinsetupVC.swift */,
 				E227F5762BA3E9E0009AFF82 /* NoteListVC.swift */,
+				E2FA87D32BA3F14900F34A47 /* TaskDetailsViewController.swift */,
 				5BBE55B62523A90A00090F87 /* TodoViewController.swift */,
 				603B4C65252647BD00579EC6 /* ResultsTableController.swift */,
 				8E6209BC25291AF0004CE4B9 /* OnboardingViewController.swift */,
 				FFA668392530E07F004E1DE3 /* TaskHistoryViewController.swift */,
 				E2FA87D02BA3F12F00F34A47 /* SetupSuccessfulVC.swift */,
-				E2FA87D32BA3F14900F34A47 /* TaskDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
