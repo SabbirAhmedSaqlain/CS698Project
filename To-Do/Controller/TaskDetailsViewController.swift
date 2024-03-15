@@ -88,6 +88,7 @@ class TaskDetailsViewController: UIViewController{
         }
         else if  update {
             CoreDataLogic.updateData(id: userdata.id ?? "", noteTitle: userdata.title ?? "", noteDetails: userdata.details ?? "")
+            navigationController?.popViewController(animated: true)
         }
         
         else{

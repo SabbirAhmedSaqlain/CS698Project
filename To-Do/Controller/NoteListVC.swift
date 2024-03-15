@@ -63,12 +63,12 @@ class NoteListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationItem.searchController = searchController
-        self.noteTableView.reloadData()
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.noteTableView.reloadData()
+        loadData()
     }
     
 
