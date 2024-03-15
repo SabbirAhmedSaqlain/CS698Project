@@ -32,16 +32,12 @@ class DashboardViewController: UIViewController {
     @IBAction func startButtonAction(_ sender: Any) {
         
         var pin = UserDefaults.standard.string(forKey: Constants.Key.pin) ?? ""
-        
         if pin.count > 0 {
-            
             if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC {
                 navigationController?.pushViewController(destinationVC, animated: true)
             }
-            
         }
         else{
-            
             if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "PinBioSetupPageVC") as? PinBioSetupPageVC {
                 navigationController?.pushViewController(destinationVC, animated: true)
             }

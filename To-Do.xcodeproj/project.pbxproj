@@ -26,7 +26,9 @@
 		AB95E033252712C4008C4E48 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95E032252712C4008C4E48 /* TaskCell.swift */; };
 		E227F5312BA37C0E009AFF82 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227F5302BA37C0E009AFF82 /* LoginVC.swift */; };
 		E227F5332BA38042009AFF82 /* NoteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227F5322BA38042009AFF82 /* NoteListVC.swift */; };
-		E28423BF2BA3534200583943 /* CustomUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28423BE2BA3534200583943 /* CustomUIApplication.swift */; };
+		E227F5352BA397FB009AFF82 /* CoreDataLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227F5342BA397FB009AFF82 /* CoreDataLogic.swift */; };
+		E227F5382BA3987F009AFF82 /* CoreDataCRUD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E227F5362BA3987F009AFF82 /* CoreDataCRUD.xcdatamodeld */; };
+		E227F5392BA3987F009AFF82 /* CoreDataCRUD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E227F5362BA3987F009AFF82 /* CoreDataCRUD.xcdatamodeld */; };
 		E28423C12BA35C0600583943 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28423C02BA35C0600583943 /* DashboardViewController.swift */; };
 		E28423C32BA3637100583943 /* PinBioSetupPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28423C22BA3637100583943 /* PinBioSetupPageVC.swift */; };
 		E28423C52BA3650200583943 /* PinsetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28423C42BA3650200583943 /* PinsetupVC.swift */; };
@@ -71,7 +73,8 @@
 		AB95E032252712C4008C4E48 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		E227F5302BA37C0E009AFF82 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E227F5322BA38042009AFF82 /* NoteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListVC.swift; sourceTree = "<group>"; };
-		E28423BE2BA3534200583943 /* CustomUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIApplication.swift; sourceTree = "<group>"; };
+		E227F5342BA397FB009AFF82 /* CoreDataLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLogic.swift; sourceTree = "<group>"; };
+		E227F5372BA3987F009AFF82 /* CoreDataCRUD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataCRUD.xcdatamodel; sourceTree = "<group>"; };
 		E28423C02BA35C0600583943 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		E28423C22BA3637100583943 /* PinBioSetupPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinBioSetupPageVC.swift; sourceTree = "<group>"; };
 		E28423C42BA3650200583943 /* PinsetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsetupVC.swift; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 		5BBE55BE252453C400090F87 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E227F5362BA3987F009AFF82 /* CoreDataCRUD.xcdatamodeld */,
 				5BBE55A62523A42700090F87 /* To_Do.xcdatamodeld */,
 				07F46C8425277C7E007DC6AC /* SortTypes.swift */,
 			);
@@ -162,7 +166,6 @@
 				E227F5322BA38042009AFF82 /* NoteListVC.swift */,
 				5BBE55C825245DBF00090F87 /* TaskDetailsViewController.swift */,
 				5BBE55B62523A90A00090F87 /* TodoViewController.swift */,
-				E28423BE2BA3534200583943 /* CustomUIApplication.swift */,
 				603B4C65252647BD00579EC6 /* ResultsTableController.swift */,
 				8E6209BC25291AF0004CE4B9 /* OnboardingViewController.swift */,
 				FFA668392530E07F004E1DE3 /* TaskHistoryViewController.swift */,
@@ -175,6 +178,7 @@
 			children = (
 				5BBE55AE2523A42C00090F87 /* Info.plist */,
 				5BBE559D2523A42700090F87 /* AppDelegate.swift */,
+				E227F5342BA397FB009AFF82 /* CoreDataLogic.swift */,
 				5BBE559F2523A42700090F87 /* SceneDelegate.swift */,
 				5BBE55CA2524623900090F87 /* TextviewBorder.swift */,
 				FF2303B32529183700B88831 /* Alert.swift */,
@@ -316,7 +320,6 @@
 				5BBE55A82523A42700090F87 /* To_Do.xcdatamodeld in Sources */,
 				5BC2F07B2532D10F00B648C2 /* Constants.swift in Sources */,
 				5BBE55CB2524623900090F87 /* TextviewBorder.swift in Sources */,
-				E28423BF2BA3534200583943 /* CustomUIApplication.swift in Sources */,
 				E924B487252D63FE004FD116 /* ImageAttachmentCell.swift in Sources */,
 				E227F5332BA38042009AFF82 /* NoteListVC.swift in Sources */,
 				E28423C52BA3650200583943 /* PinsetupVC.swift in Sources */,
@@ -324,8 +327,10 @@
 				8E6209BD25291AF0004CE4B9 /* OnboardingViewController.swift in Sources */,
 				5BBE55C925245DBF00090F87 /* TaskDetailsViewController.swift in Sources */,
 				FF2303B42529183700B88831 /* Alert.swift in Sources */,
+				E227F5382BA3987F009AFF82 /* CoreDataCRUD.xcdatamodeld in Sources */,
 				3307EC692537AFB100963CC4 /* Extensions.swift in Sources */,
 				FFA6683A2530E07F004E1DE3 /* TaskHistoryViewController.swift in Sources */,
+				E227F5352BA397FB009AFF82 /* CoreDataLogic.swift in Sources */,
 				AB95E033252712C4008C4E48 /* TaskCell.swift in Sources */,
 				E227F5312BA37C0E009AFF82 /* LoginVC.swift in Sources */,
 			);
@@ -335,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E227F5392BA3987F009AFF82 /* CoreDataCRUD.xcdatamodeld in Sources */,
 				6555BCAC252C3FAC00E7DF3D /* TaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +612,16 @@
 			);
 			currentVersion = E924B48A252D686A004FD116 /* To_Do2.xcdatamodel */;
 			path = To_Do.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		E227F5362BA3987F009AFF82 /* CoreDataCRUD.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E227F5372BA3987F009AFF82 /* CoreDataCRUD.xcdatamodel */,
+			);
+			currentVersion = E227F5372BA3987F009AFF82 /* CoreDataCRUD.xcdatamodel */;
+			path = CoreDataCRUD.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -17,17 +17,18 @@ class NoteListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var noteTableView: UITableView!
     
     @IBOutlet weak var createNewButton: UIButton!
-    /// `Sort button` to sort tasks
- 
     
-    /// `SearchController` to include search bar
+    var userdata: [coreData] = []
+    
+    
+     
     var searchController: UISearchController!
     
     /// `ResultsController` to display results of specific search
     var resultsTableController: ResultsTableController!
     
     /// `DataSource` for todoTableview
-    var todoList : [Task] = []
+   // var todoList : [Task] = []
     
     /// last task tapped!
     var lastIndexTapped : Int = 0
@@ -66,19 +67,25 @@ class NoteListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     /// initialize ManagedObjectContext
     func loadData() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let persistenceContainer = appDelegate.persistentContainer
-        moc = persistenceContainer.viewContext
-        defaultFetchRequest.sortDescriptors = currentSelectedSortType.getSortDescriptor()
-        defaultFetchRequest.predicate = NSPredicate(format: "isComplete = %d", false)
-        setupFetchedResultsController(fetchRequest: defaultFetchRequest)
-        /// reloading the table view with the fetched objects
-        if let objects = fetchedResultsController.fetchedObjects {
-            self.todoList = objects
-            DispatchQueue.main.async {
-                self.noteTableView.reloadData()
-            }
+        
+        userdata =  CoreDataLogic.retrieveData()
+        DispatchQueue.main.async {
+            self.noteTableView.reloadData()
         }
+        
+//        
+//        
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        let persistenceContainer = appDelegate.persistentContainer
+//        moc = persistenceContainer.viewContext
+//        defaultFetchRequest.sortDescriptors = currentSelectedSortType.getSortDescriptor()
+//        defaultFetchRequest.predicate = NSPredicate(format: "isComplete = %d", false)
+//        setupFetchedResultsController(fetchRequest: defaultFetchRequest)
+//        /// reloading the table view with the fetched objects
+//        if let objects = fetchedResultsController.fetchedObjects {
+//            self.todoList = objects
+//            
+//        }
     }
     
     /// initialize FetchedResultsController
@@ -116,54 +123,54 @@ class NoteListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     /// function called when `Star Task` tapped
     /// - Parameter index: Which task to  star
     func starTask(at index : Int){
-        todoList[index].isFavourite = todoList[index].isFavourite ? false : true
-        updateTask()
+//        todoList[index].isFavourite = todoList[index].isFavourite ? false : true
+//        updateTask()
     }
     
     /// function called when `Delete Task` tapped
     /// - Parameter index: Which task to  delete
     func deleteTask(at index : Int){
-        hapticNotificationGenerator = UINotificationFeedbackGenerator()
-        hapticNotificationGenerator?.prepare()
-        
-        let element = todoList.remove(at: index) /// removes task at index
-        moc.delete(element) /// deleting the object from core data
-        do {
-            try moc.save()
-            hapticNotificationGenerator?.notificationOccurred(.success)
-        } catch {
-            todoList.insert(element, at: index)
-            print(error.localizedDescription)
-            hapticNotificationGenerator?.notificationOccurred(.error)
-        }
-        noteTableView.reloadData() /// Reload tableview with remaining data
-        hapticNotificationGenerator = nil
+//        hapticNotificationGenerator = UINotificationFeedbackGenerator()
+//        hapticNotificationGenerator?.prepare()
+//        
+//        let element = todoList.remove(at: index) /// removes task at index
+//        moc.delete(element) /// deleting the object from core data
+//        do {
+//            try moc.save()
+//            hapticNotificationGenerator?.notificationOccurred(.success)
+//        } catch {
+//            todoList.insert(element, at: index)
+//            print(error.localizedDescription)
+//            hapticNotificationGenerator?.notificationOccurred(.error)
+//        }
+//        noteTableView.reloadData() /// Reload tableview with remaining data
+//        hapticNotificationGenerator = nil
     }
     
     /// Mark a task as complete and remove from the `tableView`
     /// - Parameter index: Which task to mark as complete
     func completeTask(at index : Int){
-        todoList[index].isComplete = true
-        todoList.remove(at: index) /// removes task at index
-        updateTask()
-        noteTableView.reloadData()
+//        todoList[index].isComplete = true
+//        todoList.remove(at: index) /// removes task at index
+//        updateTask()
+//        noteTableView.reloadData()
     }
     
     /// Update task
     /// function called whenever updating a task is required
     func updateTask(){
-        hapticNotificationGenerator = UINotificationFeedbackGenerator()
-        hapticNotificationGenerator?.prepare()
-        
-        do {
-            try moc.save()
-            hapticNotificationGenerator?.notificationOccurred(.success)
-        } catch {
-            print(error.localizedDescription)
-            hapticNotificationGenerator?.notificationOccurred(.error)
-        }
-        loadData()
-        hapticNotificationGenerator = nil
+//        hapticNotificationGenerator = UINotificationFeedbackGenerator()
+//        hapticNotificationGenerator?.prepare()
+//        
+//        do {
+//            try moc.save()
+//            hapticNotificationGenerator?.notificationOccurred(.success)
+//        } catch {
+//            print(error.localizedDescription)
+//            hapticNotificationGenerator?.notificationOccurred(.error)
+//        }
+//        loadData()
+//        hapticNotificationGenerator = nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -214,7 +221,7 @@ class NoteListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        // self.sortButton.isEnabled = self.todoList.count > 0
         
-        if todoList.isEmpty {
+        if userdata.isEmpty {
             tableView.separatorStyle = .none
             tableView.backgroundView?.isHidden = false
         } else {
@@ -223,23 +230,23 @@ class NoteListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
         }
         
-        return todoList.count
+        return userdata.count
     }
  
     
     /// function  to determine `tableview cell` at a given row
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cell.taskCell, for: indexPath) as! TaskCell
-        let task = todoList[indexPath.row]
+        let task = userdata[indexPath.row]
         cell.title.text = task.title
-        cell.subtitle.text = task.dueDate
-        cell.starImage.isHidden = todoList[indexPath.row].isFavourite ? false : true
+        cell.subtitle.text = task.details
+       // cell.starImage.isHidden = todoList[indexPath.row].isFavourite ? false : true
         return cell
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         lastIndexTapped = indexPath.row
-        let task = todoList[indexPath.row]
+        let task = userdata[indexPath.row]
         performSegue(withIdentifier: Constants.Segue.taskToTaskDetail, sender: task)
     }
     
@@ -261,7 +268,7 @@ class NoteListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.starTask(at: indexPath.row)
         }
         star.backgroundColor = .orange
-        star.title = todoList[indexPath.row].isFavourite ? actions.unstar : actions.star
+       //star.title = todoList[indexPath.row].isFavourite ? actions.unstar : actions.star
         
         let swipeActions = UISwipeActionsConfiguration(actions: [delete,star])
         return swipeActions
@@ -318,13 +325,13 @@ extension NoteListVC: NSFetchedResultsControllerDelegate {
 /// protocol for `saving` or `updating` `Tasks`
 extension NoteListVC : TaskDelegate{
     func didTapSave(task: Task) {
-        todoList.append(task)
-        do {
-            try moc.save()
-        } catch {
-            todoList.removeLast()
-            print(error.localizedDescription)
-        }
+//        userdata.append(task)
+//        do {
+//            try moc.save()
+//        } catch {
+//            todoList.removeLast()
+//            print(error.localizedDescription)
+//        }
         loadData()
     }
     
@@ -342,12 +349,12 @@ extension NoteListVC: UISearchControllerDelegate, UISearchResultsUpdating, UISea
     func updateSearchResults(for searchController: UISearchController) {
         /// perform search only when there is some text
         if let text: String = searchController.searchBar.text?.lowercased(), text.count > 0, let resultsController = searchController.searchResultsController as? ResultsTableController {
-            resultsController.todoList = todoList.filter({ (task) -> Bool in
-                if task.title?.lowercased().contains(text) == true || task.subTasks?.lowercased().contains(text) == true {
-                    return true
-                }
-                return false
-            })
+//            resultsController.todoList = todoList.filter({ (task) -> Bool in
+//                if task.title?.lowercased().contains(text) == true || task.subTasks?.lowercased().contains(text) == true {
+//                    return true
+//                }
+//                return false
+//            })
             let fetchRequest : NSFetchRequest<Task> = Task.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
             fetchRequest.predicate = NSPredicate(format: "title contains[c] %@", text)

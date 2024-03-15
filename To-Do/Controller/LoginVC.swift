@@ -59,6 +59,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "NoteListVC") as? NoteListVC {
             navigationController?.pushViewController(destinationVC, animated: true)
         }
+        
     }
     
     func showAlert(msg: String) {

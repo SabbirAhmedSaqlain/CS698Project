@@ -455,7 +455,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCw-zK-mcH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1058" y="1096"/>
+            <point key="canvasLocation" x="1332" y="1077"/>
         </scene>
         <!--History-->
         <scene sceneID="aUH-6e-c15">
@@ -575,10 +575,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j7h-Rq-Y8r">
-                                <rect key="frame" x="30" y="557" width="354" height="285"/>
+                                <rect key="frame" x="30" y="557" width="354" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.12226864279999999" blue="0.78795382960000004" alpha="0.02" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="yCe-WO-iYO"/>
+                                    <constraint firstAttribute="height" constant="100" id="yCe-WO-iYO"/>
                                 </constraints>
                                 <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3sI-fh-gJD">
@@ -631,6 +631,23 @@
                                     <action selector="addImageAttachment:" destination="nxu-i3-jBK" eventType="touchUpInside" id="ftt-Qt-eU5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgo-By-KnJ" userLabel="create">
+                                <rect key="frame" x="101" y="753" width="212" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Save"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addNewNotes:" destination="ir4-n4-9cR" eventType="touchUpInside" id="ESK-KS-LbW"/>
+                                    <action selector="saveNotes:" destination="nxu-i3-jBK" eventType="touchUpInside" id="jEE-M0-5JD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4ee-dD-deY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -661,7 +678,6 @@
                             <constraint firstItem="cPs-1z-OBC" firstAttribute="top" secondItem="t2K-hx-CYf" secondAttribute="bottom" constant="15" id="qda-Fo-PdC"/>
                             <constraint firstItem="j7h-Rq-Y8r" firstAttribute="top" secondItem="IFB-7s-CeA" secondAttribute="bottom" constant="15" id="wW7-pB-eQP"/>
                             <constraint firstItem="8OQ-Ed-b34" firstAttribute="top" secondItem="9sj-wg-Sod" secondAttribute="bottom" constant="15" id="x2y-uR-jnG"/>
-                            <constraint firstItem="4ee-dD-deY" firstAttribute="bottom" secondItem="j7h-Rq-Y8r" secondAttribute="bottom" constant="20" id="xHm-tl-puT"/>
                             <constraint firstItem="IFB-7s-CeA" firstAttribute="leading" secondItem="4ee-dD-deY" secondAttribute="leading" constant="20" id="xTl-H5-NQL"/>
                         </constraints>
                     </view>
