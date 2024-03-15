@@ -3,8 +3,7 @@
 //  To-Do
 //
 //  Created by Sabbir Ahmed on 14/3/24.
-//  Copyright © 2024 Aaryan Kothari. All rights reserved.
-//
+ 
 
 
 
@@ -80,6 +79,7 @@ class PinsetupVC: UIViewController,UITextFieldDelegate {
 }
 
  
+
 
 
 

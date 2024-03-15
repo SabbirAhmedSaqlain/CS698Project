@@ -37,7 +37,6 @@ class TaskHistoryViewController: UIViewController {
         if completedList.isEmpty {
             setupEmptyState()
         }
-        UserDefaults.standard.set(false, forKey: Constants.Key.onboarding)
     }
 
     // MARK: - Logic

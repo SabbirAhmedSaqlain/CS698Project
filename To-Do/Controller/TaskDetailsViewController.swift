@@ -2,9 +2,8 @@
 //  TaskDetailsViewController.swift
 //  To-Do
 //
-//  Created by Aaryan Kothari on 30/09/20.
-//  Copyright © 2020 Aaryan Kothari. All rights reserved.
-//
+//  Created by Sabbir Ahmed on 14/3/24.
+ 
 
 import UIKit
 import CoreData
@@ -246,3 +245,4 @@ extension TaskDetailsViewController: UICollectionViewDelegate, UICollectionViewD
         debugPrint("Click: \(indexPath.row) \(imagesAttached[indexPath.row])")
     }
 }
+

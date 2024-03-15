@@ -55,7 +55,7 @@ class NoteListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         //showOnboardingIfNeeded() /// present onboarding screen for first time
-        setupEmptyState() /// show emppty view if no tasks present
+       // setupEmptyState() /// show emppty view if no tasks present
         loadData() /// Core data setup and population
         setupSearchController() /// setup search view controller for searching
     }
@@ -63,12 +63,26 @@ class NoteListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationItem.searchController = searchController
+        self.noteTableView.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.noteTableView.reloadData()
+    }
+    
+
     
     /// initialize ManagedObjectContext
     func loadData() {
         
         userdata =  CoreDataLogic.retrieveData()
+        
+        for item in userdata{
+            print(item)
+        }
+        
+        
         DispatchQueue.main.async {
             self.noteTableView.reloadData()
         }

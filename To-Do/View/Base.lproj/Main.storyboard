@@ -122,7 +122,6 @@
                 <navigationController id="nlJ-9c-VtT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tasks" image="folder" catalog="system" id="RfZ-pH-59K"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Pjy-kB-c2L">
-                        <rect key="frame" x="0.0" y="48" width="414" height="97"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
@@ -464,7 +463,6 @@
                     <tabBarItem key="tabBarItem" title="History" image="tray" catalog="system" id="1MX-v9-YV1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Bso-0a-VJZ">
-                        <rect key="frame" x="0.0" y="48" width="414" height="97"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -768,7 +766,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KIY-3N-pNN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BJ6-wj-QGQ">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1031,6 +1028,10 @@
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="ir4-n4-9cR" id="oc6-Hu-tvW"/>
+                                            <outlet property="delegate" destination="ir4-n4-9cR" id="aV6-Tt-L3E"/>
+                                        </connections>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP8-Yd-aVv" userLabel="create">
                                         <rect key="frame" x="101" y="750" width="212" height="48"/>
@@ -1080,8 +1081,8 @@
     </scenes>
     <resources>
         <image name="check" width="512" height="512"/>
-        <image name="folder" catalog="system" width="128" height="96"/>
-        <image name="tray" catalog="system" width="128" height="88"/>
+        <image name="folder" catalog="system" width="32" height="32"/>
+        <image name="tray" catalog="system" width="32" height="32"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1092,10 +1093,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
