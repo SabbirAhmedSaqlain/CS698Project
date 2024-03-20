@@ -23,14 +23,10 @@ class Constants {
     
     struct Segue{
         static let taskToTaskDetail = "gototask"
-        static let createNewNotes = "createNewNotes"
-        
     }
     
     struct Key{
         static let onboarding = "already_shown_onboarding"
-        static let pin = "pinnumber"
-        static let noteCounter = "noteCounter"
     }
     
     struct Action{

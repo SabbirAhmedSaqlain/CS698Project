@@ -2,13 +2,13 @@
 //  TaskDetailsViewController.swift
 //  To-Do
 //
-//  Created by Sabbir Ahmed on 14/3/24.
- 
+//  Created by Aaryan Kothari on 30/09/20.
+//  Copyright © 2020 Aaryan Kothari. All rights reserved.
+//
 
 import UIKit
-import CoreData
 
-protocol TaskDelegate: AnyObject {
+protocol TaskDelegate: class {
     func didTapSave(task : Task)
     func didTapUpdate(task : Task)
 }
@@ -23,9 +23,6 @@ class TaskDetailsViewController: UIViewController{
     @IBOutlet private weak var attachmentCollection: UICollectionView!
     
     
-    var userdata = CoreDataItem()
-    var update = false
-    
     // VARIABLES
     var task : Task? = nil
     var endDate : String = .empty
@@ -35,22 +32,13 @@ class TaskDetailsViewController: UIViewController{
     var isUpdate: Bool = false
     var selectedDateTimeStamp: Double?
     var imagesAttached = [UIImage]()
-    var todoList : [Task] = []
-    var moc: NSManagedObjectContext!
+    
     var cameraHelper = CameraHelper()
     
     var hapticGenerator: UINotificationFeedbackGenerator? = nil
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if update {
-            saveButton.title = "Update"
-            taskTitleTextField.text = userdata.title
-            subTasksTextView.text = userdata.details
-        }
-        
-        
         isUpdate = (task != nil)
         endDatePicker = UIDatePicker()
         endDatePicker.addTarget(self, action: #selector(didPickDate(_:)), for: .valueChanged)
@@ -77,34 +65,6 @@ class TaskDetailsViewController: UIViewController{
         }
     }
     
-    @IBAction func saveNotes(_ sender: Any) {
-        let noteTitle = taskTitleTextField.text ?? ""
-        let noteDetails = subTasksTextView.text ?? ""
-        
-        if noteTitle.count == 0 {
-            showAlert(msg: "Please enter note title")
-        }else if noteDetails.count == 0 {
-            showAlert(msg: "Please enter note details")
-        }
-        else if  update {
-            //CoreDataLogic.updateData(id: userdata.id ?? "", noteTitle: userdata.title ?? "", noteDetails: userdata.details ?? "")
-            
-            CoreDataLogic.UpdateObj(id: userdata.id ?? "", noteTitle: userdata.title ?? "", noteDetails: userdata.details ?? "")
-            
-            
-            navigationController?.popViewController(animated: true)
-        }
-        
-        else{
-            var noteCounter = UserDefaults.standard.integer(forKey: Constants.Key.noteCounter)
-            noteCounter += 1
-            UserDefaults.standard.set(noteCounter, forKey: Constants.Key.noteCounter)
-            CoreDataLogic.createData(id: String(noteCounter), noteTitle: noteTitle, noteDetails: noteDetails)
-            
-            navigationController?.popViewController(animated: true)
-        }
-    }
-    
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
         hapticGenerator = UINotificationFeedbackGenerator()
         hapticGenerator?.prepare()
@@ -119,13 +79,11 @@ class TaskDetailsViewController: UIViewController{
         }
         
         hapticGenerator?.notificationOccurred(.success)
-        
+
         if isUpdate {
             self.delegate?.didTapUpdate(task: task)
-            
         } else {
-            //self.delegate?.didTapSave(task: task)
-            didTapSave(task: task)
+            self.delegate?.didTapSave(task: task)
         }
         self.navigationController?.popViewController(animated: true)
         
@@ -148,32 +106,6 @@ class TaskDetailsViewController: UIViewController{
         }
     }
     
-    func didTapSave(task: Task) {
-        todoList.append(task)
-        do {
-            try moc.save()
-        } catch {
-            todoList.removeLast()
-            print(error.localizedDescription)
-        }
-        // loadData()
-    }
-    
-    func showAlert(msg: String) {
-        // Create the alert controller
-        let alert = UIAlertController(title: "Alert!!", message: msg, preferredStyle: .alert)
-        
-        // Add an action to the alert
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            // Handle the OK action
-            print("OK button tapped.")
-        }))
-        
-        // Present the alert
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    
     // function that `Creates Task body`
     /// Title: String taken from `taskTitleTextField`
     /// Subtask: String taken from `subTasksTextView`
@@ -182,10 +114,10 @@ class TaskDetailsViewController: UIViewController{
         let title = taskTitleTextField.text?.trim() ?? .empty
         let subtask = subTasksTextView.text?.trim() ?? .empty
         /// check if we are updating the task or creatiing the task
-        //        if self.task == nil {
-        //            let mainController = self.delegate as! NoteListVC
-        //            self.task = Task(context: mainController.moc)
-        //        }
+        if self.task == nil {
+            let mainController = self.delegate as! TodoViewController
+            self.task = Task(context: mainController.moc)
+        }
         task?.title = title
         task?.subTasks = subtask
         task?.dueDate = endDate
@@ -267,4 +199,3 @@ extension TaskDetailsViewController: UICollectionViewDelegate, UICollectionViewD
         debugPrint("Click: \(indexPath.row) \(imagesAttached[indexPath.row])")
     }
 }
-
