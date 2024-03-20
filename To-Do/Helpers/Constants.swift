@@ -3,7 +3,7 @@
 //  To-Do
 //
 //  Created by Aaryan Kothari on 11/10/20.
-//  Copyright © 2020 Aaryan Kothari. All rights reserved.
+ 
 //
 
 import Foundation
@@ -23,10 +23,14 @@ class Constants {
     
     struct Segue{
         static let taskToTaskDetail = "gototask"
+        static let createNewNotes = "createNewNotes"
+        
     }
     
     struct Key{
         static let onboarding = "already_shown_onboarding"
+        static let pin = "pinnumber"
+        static let noteCounter = "noteCounter"
     }
     
     struct Action{

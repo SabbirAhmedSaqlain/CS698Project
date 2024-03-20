@@ -24,6 +24,16 @@
 		6555BCAC252C3FAC00E7DF3D /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6555BCAB252C3FAC00E7DF3D /* TaskTests.swift */; };
 		8E6209BD25291AF0004CE4B9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6209BC25291AF0004CE4B9 /* OnboardingViewController.swift */; };
 		AB95E033252712C4008C4E48 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95E032252712C4008C4E48 /* TaskCell.swift */; };
+		E239E0C92BAA847500AC424A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0C82BAA847500AC424A /* DashboardViewController.swift */; };
+		E239E0CA2BAA847500AC424A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0C82BAA847500AC424A /* DashboardViewController.swift */; };
+		E239E0CD2BAA84B700AC424A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0CC2BAA84B700AC424A /* LoginVC.swift */; };
+		E239E0CE2BAA84B700AC424A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0CC2BAA84B700AC424A /* LoginVC.swift */; };
+		E239E0D02BAA84E300AC424A /* PinBioSetupPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0CF2BAA84E300AC424A /* PinBioSetupPageVC.swift */; };
+		E239E0D12BAA84E300AC424A /* PinBioSetupPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0CF2BAA84E300AC424A /* PinBioSetupPageVC.swift */; };
+		E239E0D32BAA84F000AC424A /* PinsetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0D22BAA84F000AC424A /* PinsetupVC.swift */; };
+		E239E0D42BAA84F000AC424A /* PinsetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0D22BAA84F000AC424A /* PinsetupVC.swift */; };
+		E239E0D62BAA84FF00AC424A /* SetupSuccessfulVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0D52BAA84FF00AC424A /* SetupSuccessfulVC.swift */; };
+		E239E0D72BAA84FF00AC424A /* SetupSuccessfulVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0D52BAA84FF00AC424A /* SetupSuccessfulVC.swift */; };
 		E924B484252D53F3004FD116 /* CameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924B483252D53F3004FD116 /* CameraHelper.swift */; };
 		E924B487252D63FE004FD116 /* ImageAttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924B486252D63FD004FD116 /* ImageAttachmentCell.swift */; };
 		FF2303B42529183700B88831 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2303B32529183700B88831 /* Alert.swift */; };
@@ -62,6 +72,11 @@
 		6555BCAD252C3FAC00E7DF3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E6209BC25291AF0004CE4B9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AB95E032252712C4008C4E48 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		E239E0C82BAA847500AC424A /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		E239E0CC2BAA84B700AC424A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		E239E0CF2BAA84E300AC424A /* PinBioSetupPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinBioSetupPageVC.swift; sourceTree = "<group>"; };
+		E239E0D22BAA84F000AC424A /* PinsetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsetupVC.swift; sourceTree = "<group>"; };
+		E239E0D52BAA84FF00AC424A /* SetupSuccessfulVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupSuccessfulVC.swift; sourceTree = "<group>"; };
 		E924B483252D53F3004FD116 /* CameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHelper.swift; sourceTree = "<group>"; };
 		E924B486252D63FD004FD116 /* ImageAttachmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAttachmentCell.swift; sourceTree = "<group>"; };
 		E924B48A252D686A004FD116 /* To_Do2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = To_Do2.xcdatamodel; sourceTree = "<group>"; };
@@ -140,6 +155,7 @@
 		5BBE55C0252453D700090F87 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E239E0CB2BAA847900AC424A /* Dashboard */,
 				5BBE55B62523A90A00090F87 /* TodoViewController.swift */,
 				5BBE55C825245DBF00090F87 /* TaskDetailsViewController.swift */,
 				603B4C65252647BD00579EC6 /* ResultsTableController.swift */,
@@ -180,6 +196,18 @@
 				6555BCAD252C3FAC00E7DF3D /* Info.plist */,
 			);
 			path = "To-DoTests";
+			sourceTree = "<group>";
+		};
+		E239E0CB2BAA847900AC424A /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				E239E0C82BAA847500AC424A /* DashboardViewController.swift */,
+				E239E0CC2BAA84B700AC424A /* LoginVC.swift */,
+				E239E0CF2BAA84E300AC424A /* PinBioSetupPageVC.swift */,
+				E239E0D22BAA84F000AC424A /* PinsetupVC.swift */,
+				E239E0D52BAA84FF00AC424A /* SetupSuccessfulVC.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,16 +311,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E239E0D62BAA84FF00AC424A /* SetupSuccessfulVC.swift in Sources */,
 				07F46C8525277C7E007DC6AC /* SortTypes.swift in Sources */,
+				E239E0C92BAA847500AC424A /* DashboardViewController.swift in Sources */,
 				4F953E502531C25E0027144C /* EmptyState.swift in Sources */,
+				E239E0CD2BAA84B700AC424A /* LoginVC.swift in Sources */,
 				5BBE55B72523A90A00090F87 /* TodoViewController.swift in Sources */,
 				E924B484252D53F3004FD116 /* CameraHelper.swift in Sources */,
+				E239E0D02BAA84E300AC424A /* PinBioSetupPageVC.swift in Sources */,
 				5BBE559E2523A42700090F87 /* AppDelegate.swift in Sources */,
 				5BBE55A02523A42700090F87 /* SceneDelegate.swift in Sources */,
 				5BBE55A82523A42700090F87 /* To_Do.xcdatamodeld in Sources */,
 				5BC2F07B2532D10F00B648C2 /* Constants.swift in Sources */,
 				5BBE55CB2524623900090F87 /* TextviewBorder.swift in Sources */,
 				E924B487252D63FE004FD116 /* ImageAttachmentCell.swift in Sources */,
+				E239E0D32BAA84F000AC424A /* PinsetupVC.swift in Sources */,
 				603B4C66252647BD00579EC6 /* ResultsTableController.swift in Sources */,
 				8E6209BD25291AF0004CE4B9 /* OnboardingViewController.swift in Sources */,
 				5BBE55C925245DBF00090F87 /* TaskDetailsViewController.swift in Sources */,
@@ -308,6 +341,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6555BCAC252C3FAC00E7DF3D /* TaskTests.swift in Sources */,
+				E239E0D42BAA84F000AC424A /* PinsetupVC.swift in Sources */,
+				E239E0D72BAA84FF00AC424A /* SetupSuccessfulVC.swift in Sources */,
+				E239E0CA2BAA847500AC424A /* DashboardViewController.swift in Sources */,
+				E239E0D12BAA84E300AC424A /* PinBioSetupPageVC.swift in Sources */,
+				E239E0CE2BAA84B700AC424A /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

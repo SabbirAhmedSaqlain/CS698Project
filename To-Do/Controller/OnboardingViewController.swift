@@ -26,7 +26,7 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        markAsSeen()
+       // markAsSeen()
         dismiss(animated: true)
     }
     
