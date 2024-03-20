@@ -12,17 +12,22 @@ import UIKit
 import CoreData
 
 
-struct coreData{
+struct CoreDataItem{
     var title: String?
     var id: String?
     var details: String?
 }
 
+
+
 class CoreDataLogic {
     
     
     
-    
+    private class func getContext() -> NSManagedObjectContext {
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      return appDelegate.persistentContainer.viewContext
+    }
     
     static func createData(id: String, noteTitle: String , noteDetails: String){
         
@@ -54,10 +59,10 @@ class CoreDataLogic {
     
     
     
-    static func retrieveData() -> [coreData] {
+    static func retrieveData() -> [CoreDataItem] {
         
         
-        var datalist: [coreData] = []
+        var datalist: [CoreDataItem] = []
 
         
         //As we know that container is set up in the AppDelegates so we need to refer that container.
@@ -73,7 +78,7 @@ class CoreDataLogic {
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
                 
-                var userdata = coreData()
+                var userdata = CoreDataItem()
                 
                 userdata.id = data.value(forKey: "id") as? String
                 userdata.title = data.value(forKey: "title") as? String
@@ -89,6 +94,32 @@ class CoreDataLogic {
         }
         return datalist
         
+    }
+    
+    
+    class func UpdateObj(id: String, noteTitle: String , noteDetails: String) {
+    let context = CoreDataLogic.getContext()
+    let fetchRequest =
+    NSFetchRequest<NSManagedObject>(entityName: "User")
+    fetchRequest.returnsObjectsAsFaults = false
+    fetchRequest.predicate = NSPredicate(format:"id == %@",id)
+    let result = try? context.fetch(fetchRequest)
+    if result?.count == 1 {
+              let dic = result![0]
+        
+        
+              dic.setValue(id, forKey: "id")
+              dic.setValue(noteTitle, forKey: "title")
+              dic.setValue(noteDetails, forKey: "details")
+        
+        
+              do {
+                 try context.save()
+                 print("saved!")
+                } catch {
+              print(error.localizedDescription)
+          }
+       }
     }
     
     static func updateData(id: String, noteTitle: String , noteDetails: String){

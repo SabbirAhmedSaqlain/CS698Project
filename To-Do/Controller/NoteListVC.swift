@@ -18,7 +18,7 @@ class NoteListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var createNewButton: UIButton!
     
-    var userdata: [coreData] = []
+    var userdata: [CoreDataItem] = []
     
     
      

@@ -23,7 +23,7 @@ class TaskDetailsViewController: UIViewController{
     @IBOutlet private weak var attachmentCollection: UICollectionView!
     
     
-    var userdata = coreData()
+    var userdata = CoreDataItem()
     var update = false
     
     // VARIABLES
@@ -87,7 +87,11 @@ class TaskDetailsViewController: UIViewController{
             showAlert(msg: "Please enter note details")
         }
         else if  update {
-            CoreDataLogic.updateData(id: userdata.id ?? "", noteTitle: userdata.title ?? "", noteDetails: userdata.details ?? "")
+            //CoreDataLogic.updateData(id: userdata.id ?? "", noteTitle: userdata.title ?? "", noteDetails: userdata.details ?? "")
+            
+            CoreDataLogic.UpdateObj(id: userdata.id ?? "", noteTitle: userdata.title ?? "", noteDetails: userdata.details ?? "")
+            
+            
             navigationController?.popViewController(animated: true)
         }
         

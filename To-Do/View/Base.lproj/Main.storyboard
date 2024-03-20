@@ -122,6 +122,7 @@
                 <navigationController id="nlJ-9c-VtT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tasks" image="folder" catalog="system" id="RfZ-pH-59K"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Pjy-kB-c2L">
+                        <rect key="frame" x="0.0" y="48" width="414" height="97"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
@@ -454,7 +455,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCw-zK-mcH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1332" y="1077"/>
+            <point key="canvasLocation" x="1733" y="733"/>
         </scene>
         <!--History-->
         <scene sceneID="aUH-6e-c15">
@@ -463,6 +464,7 @@
                     <tabBarItem key="tabBarItem" title="History" image="tray" catalog="system" id="1MX-v9-YV1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Bso-0a-VJZ">
+                        <rect key="frame" x="0.0" y="48" width="414" height="97"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -766,6 +768,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KIY-3N-pNN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BJ6-wj-QGQ">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1081,8 +1084,8 @@
     </scenes>
     <resources>
         <image name="check" width="512" height="512"/>
-        <image name="folder" catalog="system" width="32" height="32"/>
-        <image name="tray" catalog="system" width="32" height="32"/>
+        <image name="folder" catalog="system" width="128" height="96"/>
+        <image name="tray" catalog="system" width="128" height="88"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
