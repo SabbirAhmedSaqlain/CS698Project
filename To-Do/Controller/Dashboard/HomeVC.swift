@@ -1,18 +1,17 @@
 //
-//  LoginVC.swift
+//  HomeVC.swift
 //  To-Do
 //
-//  Created by Sabbir Ahmed on 19/3/24.
-
+//  Created by Sabbir Ahmed on 20/3/24.
 
 
 
 import UIKit
 
-class LoginVC: UIViewController,UITextFieldDelegate {
+class HomeVC: UIViewController,UITextFieldDelegate {
     
     
-    @IBOutlet weak var enterPin: UITextField!
+ 
     @IBOutlet weak var pinButton: UIButton!
     @IBOutlet weak var bioLogin: UIButton!
     
@@ -32,25 +31,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     
     @IBAction func pinButtonAction(_ sender: Any) {
         
-        enterPin.resignFirstResponder()
-        
-        let inputPin = enterPin.text ?? ""
-        let pin = UserDefaults.standard.string(forKey: Constants.Key.pin) ?? ""
-        
-        
-        
-        if pin == inputPin  {
-            ////Successful login
-            ///
-            ///
-            
-            print("Next VCCCC")
-//            if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "NoteListVC") as? NoteListVC {
-//                navigationController?.pushViewController(destinationVC, animated: true)
-//            }
-            
-        }else {
-            showAlert(msg: "Wrong Pin Number!!!")
+        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "TodoViewController") as? TodoViewController {
+            navigationController?.pushViewController(destinationVC, animated: true)
         }
         
     }
@@ -59,13 +41,10 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     @IBAction func bioButtonAction(_ sender: Any) {
         print("Biometric setup")
         
-        //        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "NoteListVC") as? NoteListVC {
-        //            navigationController?.pushViewController(destinationVC, animated: true)
-        //        }
-        
-        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
+        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SettingsVC") as? SettingsVC {
             navigationController?.pushViewController(destinationVC, animated: true)
         }
+
         
         
     }
