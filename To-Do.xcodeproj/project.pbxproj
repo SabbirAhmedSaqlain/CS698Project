@@ -34,6 +34,8 @@
 		E239E0D42BAA84F000AC424A /* PinsetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0D22BAA84F000AC424A /* PinsetupVC.swift */; };
 		E239E0D62BAA84FF00AC424A /* SetupSuccessfulVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0D52BAA84FF00AC424A /* SetupSuccessfulVC.swift */; };
 		E239E0D72BAA84FF00AC424A /* SetupSuccessfulVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E0D52BAA84FF00AC424A /* SetupSuccessfulVC.swift */; };
+		E2474EFF2BAB99280087FCCC /* SecureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2474EFE2BAB99280087FCCC /* SecureStore.swift */; };
+		E2474F002BAB99280087FCCC /* SecureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2474EFE2BAB99280087FCCC /* SecureStore.swift */; };
 		E924B484252D53F3004FD116 /* CameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924B483252D53F3004FD116 /* CameraHelper.swift */; };
 		E924B487252D63FE004FD116 /* ImageAttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924B486252D63FD004FD116 /* ImageAttachmentCell.swift */; };
 		FF2303B42529183700B88831 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2303B32529183700B88831 /* Alert.swift */; };
@@ -77,6 +79,7 @@
 		E239E0CF2BAA84E300AC424A /* PinBioSetupPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinBioSetupPageVC.swift; sourceTree = "<group>"; };
 		E239E0D22BAA84F000AC424A /* PinsetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsetupVC.swift; sourceTree = "<group>"; };
 		E239E0D52BAA84FF00AC424A /* SetupSuccessfulVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupSuccessfulVC.swift; sourceTree = "<group>"; };
+		E2474EFE2BAB99280087FCCC /* SecureStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStore.swift; sourceTree = "<group>"; };
 		E924B483252D53F3004FD116 /* CameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHelper.swift; sourceTree = "<group>"; };
 		E924B486252D63FD004FD116 /* ImageAttachmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAttachmentCell.swift; sourceTree = "<group>"; };
 		E924B48A252D686A004FD116 /* To_Do2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = To_Do2.xcdatamodel; sourceTree = "<group>"; };
@@ -176,6 +179,7 @@
 				E924B483252D53F3004FD116 /* CameraHelper.swift */,
 				5BC2F07A2532D10F00B648C2 /* Constants.swift */,
 				3307EC682537AFB100963CC4 /* Extensions.swift */,
+				E2474EFE2BAB99280087FCCC /* SecureStore.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -311,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2474EFF2BAB99280087FCCC /* SecureStore.swift in Sources */,
 				E239E0D62BAA84FF00AC424A /* SetupSuccessfulVC.swift in Sources */,
 				07F46C8525277C7E007DC6AC /* SortTypes.swift in Sources */,
 				E239E0C92BAA847500AC424A /* DashboardViewController.swift in Sources */,
@@ -346,6 +351,7 @@
 				E239E0CA2BAA847500AC424A /* DashboardViewController.swift in Sources */,
 				E239E0D12BAA84E300AC424A /* PinBioSetupPageVC.swift in Sources */,
 				E239E0CE2BAA84B700AC424A /* LoginVC.swift in Sources */,
+				E2474F002BAB99280087FCCC /* SecureStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

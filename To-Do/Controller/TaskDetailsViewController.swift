@@ -98,10 +98,12 @@ class TaskDetailsViewController: UIViewController{
         if taskTitleTextField.text?.trim().isEmpty ?? true {
             Alert.showNoTaskTitle(on: self)
             return false
-        } else if endDateTextField.text?.trim().isEmpty ?? true {
-            Alert.showNoTaskDueDate(on: self)
-            return false
-        } else {
+        }
+//        else if endDateTextField.text?.trim().isEmpty ?? true {
+//            Alert.showNoTaskDueDate(on: self)
+//            return false
+//        } 
+        else {
             return true
         }
     }
@@ -111,13 +113,20 @@ class TaskDetailsViewController: UIViewController{
     /// Subtask: String taken from `subTasksTextView`
     /// endDate : String taken from `didPickDate method`
     func createTaskBody()->Task? {
-        let title = taskTitleTextField.text?.trim() ?? .empty
+        var title = taskTitleTextField.text?.trim() ?? .empty
         let subtask = subTasksTextView.text?.trim() ?? .empty
         /// check if we are updating the task or creatiing the task
         if self.task == nil {
             let mainController = self.delegate as! TodoViewController
             self.task = Task(context: mainController.moc)
         }
+        
+        let enc = SecureStore.encrypt(input: SecureStore.string2Data(input: title))
+        title = SecureStore.data2String(input: enc)
+        print(title)
+ 
+ 
+        
         task?.title = title
         task?.subTasks = subtask
         task?.dueDate = endDate
@@ -199,3 +208,5 @@ extension TaskDetailsViewController: UICollectionViewDelegate, UICollectionViewD
         debugPrint("Click: \(indexPath.row) \(imagesAttached[indexPath.row])")
     }
 }
+
+

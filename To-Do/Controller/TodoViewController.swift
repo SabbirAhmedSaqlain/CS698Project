@@ -200,6 +200,7 @@ class TodoViewController: UITableViewController {
         searchController.view.backgroundColor = .white
     }
     
+    
     fileprivate func setupEmptyState() {
         let emptyBackgroundView = EmptyState(.emptyList)
         tableView.backgroundView = emptyBackgroundView
