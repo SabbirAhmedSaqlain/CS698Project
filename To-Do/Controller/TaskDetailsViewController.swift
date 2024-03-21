@@ -18,9 +18,11 @@ class TaskDetailsViewController: UIViewController{
     // OUTLETS
     @IBOutlet private weak var taskTitleTextField: UITextField!
     @IBOutlet private weak var subTasksTextView: UITextView!
+    @IBOutlet var encryptedView: UITextView!
     @IBOutlet private weak var endDateTextField: UITextField!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     @IBOutlet private weak var attachmentCollection: UICollectionView!
+    
     
     
     // VARIABLES
@@ -138,6 +140,7 @@ class TaskDetailsViewController: UIViewController{
         }
         taskTitleTextField.text = task.title
         subTasksTextView.text = SecureStore.DecryptedString(encryptedString: task.subTasks ?? "")
+        encryptedView.text =   task.subTasks
         endDateTextField.text = task.dueDate
         
         // Recover attachments
