@@ -113,22 +113,16 @@ class TaskDetailsViewController: UIViewController{
     /// Subtask: String taken from `subTasksTextView`
     /// endDate : String taken from `didPickDate method`
     func createTaskBody()->Task? {
-        var title = taskTitleTextField.text?.trim() ?? .empty
-        let subtask = subTasksTextView.text?.trim() ?? .empty
+        let title = taskTitleTextField.text?.trim() ?? .empty
+        var subtask = subTasksTextView.text?.trim() ?? .empty
         /// check if we are updating the task or creatiing the task
         if self.task == nil {
             let mainController = self.delegate as! TodoViewController
             self.task = Task(context: mainController.moc)
         }
-        
-        let enc = SecureStore.encrypt(input: SecureStore.string2Data(input: title))
-        title = SecureStore.data2String(input: enc)
-        print(title)
  
- 
-        
         task?.title = title
-        task?.subTasks = subtask
+        task?.subTasks = SecureStore.EncryptedString(originalString: subtask)
         task?.dueDate = endDate
         task?.dueDateTimeStamp = selectedDateTimeStamp ?? 0
         task?.attachments = try? NSKeyedArchiver.archivedData(withRootObject: imagesAttached, requiringSecureCoding: false)
@@ -143,7 +137,7 @@ class TaskDetailsViewController: UIViewController{
             return
         }
         taskTitleTextField.text = task.title
-        subTasksTextView.text = task.subTasks
+        subTasksTextView.text = SecureStore.DecryptedString(encryptedString: task.subTasks ?? "")
         endDateTextField.text = task.dueDate
         
         // Recover attachments

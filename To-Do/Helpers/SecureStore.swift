@@ -8,39 +8,50 @@
 
 import CryptoSwift
 
-let encryptionKey:String = "A_SIXTEEN_CHARACTER_STRING";
-let encryptionIV:String = "A_SIXTEEN_CHARACTER_STRING";
-
-public func encryptString() {
-    let test = "hi there, good sir."
-    let encryptedTest:String = try! test.aesEncrypt(key: encryptionKey, iv: encryptionIV)
-    print("Test : ", test)
-    print("Encrypted Test : ", encryptedTest)
-}
-
-public func dencryptString() {
-    let encyrptedTest = "9aEFhS7kox7PMi2HHlEnC6f/KxFyC2LGnD+gDvSRzlg=iWBEZWzdsrtxJXBQ6YX9Ug=="
-    let dencryptedTest:String = try! test.aesDecrypt(key: encryptionKey, iv: encryptionIV)
-    print("Encrypted Test : ", encyrptedTest )
-    print("Decrypted Test : ", dencryptedTest)
-}
-
-
-extension String{
+class SecureStore {
     
-    func aesEncrypt(key: String, iv: String) throws -> String {
-        let data = self.data(using: .utf8)!
-        let encrypted = try! AES(key: Array(key.utf8), blockMode: CBC.init(iv: Array(iv.utf8)), padding: .pkcs7).encrypt([UInt8](data));
-//        let encrypted = try! AES(key: key, blockMode: .CBC, padding: .pkcs7) //AES(key: key, iv: iv, blockMode: .CBC, padding: .pkcs7).encrypt([UInt8](data))
-        let encryptedData = Data(encrypted)
-        return encryptedData.base64EncodedString()
-    }
-    
-    func aesDecrypt(key: String, iv: String) throws -> String {
-        let data = Data(base64Encoded: self)!
-        let decrypted = try! AES(key: Array(key.utf8), blockMode: CBC.init(iv: Array(iv.utf8)), padding: .pkcs7).decrypt([UInt8](data));
-        let decryptedData = Data(decrypted)
-        return String(bytes: decryptedData.bytes, encoding: .utf8) ?? "Could not decrypt"
+    static  func EncryptedString(originalString: String) -> String{
         
+        let key = "yourpasswordd123" // Must be 16, 24, or 32 bytes long
+        let iv = "drowssapdrowssap" // Must be 16 bytes long
+        
+        do {
+            // Convert string to data
+            let data = originalString.data(using: .utf8)!
+            
+            // Encrypt
+            let encryptedData = try AES(key: key.bytes, blockMode: CBC(iv: iv.bytes), padding: .pkcs7).encrypt(data.bytes)
+            let encryptedString = encryptedData.toBase64()
+            print("Encrypted string: \(encryptedString )")
+            return encryptedString
+            
+        } catch {
+            print("Encryption/Decryption error: \(error)")
+        }
+        
+        return ""
     }
+    
+    
+    static  func DecryptedString(encryptedString: String) -> String{
+        // let originalString = "Hello, world!"
+        let key = "yourpasswordd123" // Must be 16, 24, or 32 bytes long
+        let iv = "drowssapdrowssap" // Must be 16 bytes long
+        
+        // Decrypt
+        if let encryptedData = Data(base64Encoded: encryptedString), let decryptedData = try? AES(key: key.bytes, blockMode: CBC(iv: iv.bytes), padding: .pkcs7).decrypt(encryptedData.bytes) {
+            let decryptedString = String(data: Data(decryptedData), encoding: .utf8)
+            print("Decrypted string: \(decryptedString ?? "Decryption failed")")
+            
+            return decryptedString ?? ""
+        }
+        
+        
+        return ""
+    }
+    
+    
+    
 }
+
+
