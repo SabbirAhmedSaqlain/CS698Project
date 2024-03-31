@@ -17,10 +17,10 @@ class TodoViewController: UITableViewController {
     @IBOutlet weak var todoTableView: UITableView!
     
     /// `Sort button` to sort tasks
-    @IBOutlet weak var sortButton: UIBarButtonItem!
+   // @IBOutlet weak var sortButton: UIBarButtonItem!
     
     /// `SearchController` to include search bar
-    var searchController: UISearchController!
+   // var searchController: UISearchController!
     
     /// `ResultsController` to display results of specific search
     var resultsTableController: ResultsTableController!
@@ -60,7 +60,7 @@ class TodoViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.navigationItem.searchController = searchController
+      //  self.navigationItem.searchController = searchController
     }
     
     /// initialize ManagedObjectContext
@@ -192,12 +192,12 @@ class TodoViewController: UITableViewController {
         resultsTableController =
             self.storyboard?.instantiateViewController(withIdentifier: Constants.ViewController.ResultsTable) as? ResultsTableController
         resultsTableController.tableView.delegate = self
-        searchController = UISearchController(searchResultsController: resultsTableController)
-        searchController.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.autocapitalizationType = .none
-        searchController.searchBar.delegate = self
-        searchController.view.backgroundColor = .white
+//        searchController = UISearchController(searchResultsController: resultsTableController)
+//        searchController.delegate = self
+//        searchController.searchResultsUpdater = self
+//        searchController.searchBar.autocapitalizationType = .none
+//        searchController.searchBar.delegate = self
+//        searchController.view.backgroundColor = .white
     }
     
     
@@ -212,7 +212,7 @@ class TodoViewController: UITableViewController {
     
     /// function to determine `Number of rows` in tableview
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.sortButton.isEnabled = self.todoList.count > 0
+     //   self.sortButton.isEnabled = self.todoList.count > 0
         
         if todoList.isEmpty {
             tableView.separatorStyle = .none
@@ -231,7 +231,7 @@ class TodoViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cell.taskCell, for: indexPath) as! TaskCell
         let task = todoList[indexPath.row]
         cell.title.text = task.title
-        cell.subtitle.text = task.dueDate
+        cell.subtitle.text = "" //task.dueDate
         cell.starImage.isHidden = todoList[indexPath.row].isFavourite ? false : true
         return cell
     }
@@ -266,17 +266,17 @@ class TodoViewController: UITableViewController {
         return swipeActions
     }
     
-    /// `UISwipeActionsConfiguration` for completing a task
-    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let completeTask = UIContextualAction(style: .normal, title: .empty) {  (_, _, _) in
-            self.completeTask(at: indexPath.row)
-        }
-        completeTask.backgroundColor = .systemGreen
-        completeTask.title = Constants.Action.complete
-        let swipeActions = UISwipeActionsConfiguration(actions: [completeTask])
-        
-        return swipeActions
-    }
+//    /// `UISwipeActionsConfiguration` for completing a task
+//    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let completeTask = UIContextualAction(style: .normal, title: .empty) {  (_, _, _) in
+//            self.completeTask(at: indexPath.row)
+//        }
+//        completeTask.backgroundColor = .systemGreen
+//        completeTask.title = Constants.Action.complete
+//        let swipeActions = UISwipeActionsConfiguration(actions: [completeTask])
+//        
+//        return swipeActions
+//    }
     
     /// function to determine `View for Footer` in tableview.
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

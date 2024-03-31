@@ -35,11 +35,11 @@ class Constants {
     }
     
     struct Action{
-        static let star = "star"
-        static let unstar = "unstar"
+        static let star = "Star"
+        static let unstar = "Unstar"
         static let add = "add"
         static let update = "update"
-        static let delete = "delete"
+        static let delete = "Delete"
         static let complete = "complete"
         static let cancel = "cancel"
     }
