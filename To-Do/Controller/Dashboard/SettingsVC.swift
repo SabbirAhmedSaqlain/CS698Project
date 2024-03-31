@@ -85,6 +85,10 @@ class SettingsVC: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func changePINAction(_ sender: Any) {
+        
+        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "PinsetupVC") as? PinsetupVC {
+            navigationController?.pushViewController(destinationVC, animated: true)
+        }
     }
     
     @IBAction func bioButtonAction(_ sender: Any) {

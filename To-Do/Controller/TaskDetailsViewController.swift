@@ -24,7 +24,8 @@ class TaskDetailsViewController: UIViewController{
     @IBOutlet private weak var attachmentCollection: UICollectionView!
     
     
-    
+    var inactivityTimer: Timer?
+
     // VARIABLES
     var task : Task? = nil
     var endDate : String = .empty
@@ -54,6 +55,29 @@ class TaskDetailsViewController: UIViewController{
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         saveButton.title = isUpdate ? Constants.Action.update : Constants.Action.add
+        
+        startInactivityTimer()
+    }
+    
+    func startInactivityTimer() {
+        // Invalidate any existing timer
+        inactivityTimer?.invalidate()
+
+        // Create a new timer that fires after 10 seconds
+        inactivityTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { [weak self] _ in
+            // Call your function here
+            self?.handleInactivity()
+        }
+    }
+
+    func handleInactivity() {
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    // Override touchesBegan to reset the timer when the user interacts
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        startInactivityTimer()
     }
     
     @IBAction func addImageAttachment(_ sender: Any) {
