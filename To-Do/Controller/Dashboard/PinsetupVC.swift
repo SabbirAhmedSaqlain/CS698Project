@@ -22,11 +22,18 @@ class PinsetupVC: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
 
     override func viewWillAppear(_ animated: Bool) {
  
        // UserDefaults.standard.set(false, forKey: Constants.Key.onboarding)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
  

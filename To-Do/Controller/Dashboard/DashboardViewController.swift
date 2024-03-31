@@ -38,7 +38,11 @@ class DashboardViewController: UIViewController {
             }
         }
         else{
-            if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "PinBioSetupPageVC") as? PinBioSetupPageVC {
+//            if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "PinBioSetupPageVC") as? PinBioSetupPageVC {
+//                navigationController?.pushViewController(destinationVC, animated: true)
+//            }
+            
+            if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "PinsetupVC") as? PinsetupVC {
                 navigationController?.pushViewController(destinationVC, animated: true)
             }
         }
